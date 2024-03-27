@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup bhailog</title>
+    <style>
+        body {
+            background-color: #222;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        
+        #container {
+            max-width: 450px;
+            width: 100%;
+            background-color: #00000038;
+            border: 1px solid #353535;
+            border-radius: 2px;
+            padding: 20px;
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "image image"
+                "button button"
+                "select select"
+                "title title"
+                "description description"
+                "card card";
+            grid-gap: 10px;
+            border-color: white;
+            border-style: solid;
+        }
+        
+        #header {
+            grid-area: header;
+        }
+        
+        #header img {
+            width: 100%;
+            filter: blur(15px);
+            transform: scale(1.1);
+            opacity: .4;
+        }
+        
+        #image-banner {
+          grid-area: image;
+          width: 50%;
+          cursor: pointer;
+          height: 251px;
+          margin-left: 111px;
+          margin-top: -210px;
+          z-index: 20;
+          border-style: solid;
+          border-color:white ;
+        }
+        
+        #atw {
+            grid-area: button;
+            border: none;
+            background-color: #222;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 20px;
+            font-weight: bolder;
+        }
+        #atw:hover{
+          background-color: grey;
+          color: black;
+        }
+        
+        #status-input {
+            grid-area: select;
+            padding: 5px;
+            background-color: #222;
+            color: white;
+            border-radius: 20px;
+            border: 1px solid #393939;
+            font-size: 13px;
+            outline: none;
+        }
+        
+        #title {
+            grid-area: title;
+            font-size: 19px;
+            color: aliceblue;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        #des {
+            grid-area: description;
+            color: rgb(73, 72, 72);
+        }
+        
+        .card {
+            grid-area: card;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        /* Tab styling */
+        .tab {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #555353;
+            border-bottom: 1px solid #ccc;
+            font-weight: bolder;
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .tab:hover{
+            background-color: white;
+        }
+        
+        .tab.active {
+            background-color: #626060;
+        }
+        
+        /* Content area styling */
+        .content {
+            padding: 20px;
+        }
+
+        /* Episode item styling */
+        .ep-item {
+            padding: 5px;
+            background-color: #807e7e;
+            color: white;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            display: inline-flex;
+            font-weight: bolder;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .ep-item:hover {
+            background-color: #ddd;
+        }
+        #stream-select{
+            display: flex;
+            flex-wrap: wrap;
+            padding-top: 20px;
+        }
+        .stream-item{
+            color: #b1c7d2;
+            margin: 4px;
+            background-color: #585858;
+            flex-grow: 1;
+            padding: 0px 7px;
+            border: 1px solid #0f0f0f;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .stream-item:hover{
+            background-color: #fffafa;
+            
+        }
+        .stream-item img{
+            height: 33px;
+            width: 103%;
+        }
+        h1{
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: white;
+        }
+        .container {
+            max-width: 400px;
+            margin: -11px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            height: 292px;
+            font-size: 20px;
+            overflow: scroll;
+        }
+        
+        input, button {
+            margin-bottom: 10px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #5c5c5d;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+            color: white;
+            font-size: 20px;
+        }
+        #animeName{
+            border-radius: 20px;
+            width: 42%;
+            text-align: center;
+            color: black;
+            height: 22px;
+            
+        }
+        #episodes{
+            border-radius: 20px;
+            width: 42%;
+            text-align: center;
+            color: black;
+            height: 22px;
+        }
+        #cd{
+            margin-top: 20px;
+        }
+        label{
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+        }
+        #animeInfo{
+            font-size: 20px;
+            color: white;
+            overflow: hidden;
+            animation: fadeIn 1s ease forwards;
+            
+        }
+   
+        
+        .container {
+           
+            animation: fadeIn 1s ease forwards;
+            
+        }
+        
+        body {
+          
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes scaleUp {
+            from {
+                transform: scale(0.5);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <img src="img\hero\R.jpeg" alt="">
+        </div>
+        <img src="img\hero\death note card.jpg" id="image-banner">
+        <button id="atw">Add To Watchlist</button>
+        <select id="status-input" onchange="statusChange()">
+            <option value="untrack" selected="">Untracked</option>
+            <option value="watching">Watching</option>
+            <option value="onhold">On-Hold</option>
+            <option value="planned">Plan to Watch</option>
+            <option value="finished">Completed</option>
+        </select>
+        <div id="title"></div>
+        <div id="des">Death Note": A high school student discovers a supernatural notebook that allows him to kill anyone whose name he writes in it, leading to a cat-and-mouse game with law enforcement.</div>
+        <div class="card">
+            <!-- Tabs -->
+            <div class="tab" onclick="showTab(0)">Streams</div>
+            <div class="tab" onclick="showTab(1)">Info</div>
+            <div class="tab" onclick="showTab(2)">How Fast You Can Watch?</div>
+            
+            <!-- Content area -->
+            <div class="content">
+                <div class="tab-content">
+                    <div id="epselect-cont" style="user-select: none;">
+                        <div class="ep-item" onclick="changeEp(1)">Episode 1</div>
+                        <div class="ep-item" onclick="changeEp(2)">Episode 2</div>
+                        <div class="ep-item" onclick="changeEp(3)">Episode 3</div>
+                        <div class="ep-item" onclick="changeEp(4)">Episode 4</div>
+                        <div class="ep-item" onclick="changeEp(5)">Episode 5</div>
+                        <div class="ep-item" onclick="changeEp(6)">Episode 6</div>
+                        <div class="ep-item" onclick="changeEp(7)">Episode 7</div>
+                        <div class="ep-item" onclick="changeEp(8)">Episode 8</div>
+                        <div class="ep-item" onclick="changeEp(9)">Episode 9</div>
+                        <div class="ep-item" onclick="changeEp(10)">Episode 10</div>
+                        <div class="ep-item" onclick="changeEp(11)">Episode 11</div>
+                        <div class="ep-item" onclick="changeEp(12)">Episode 12</div>
+                    </div>
+                    <div>
+
+                    </div>
+                
+                    <div id="stream-select"><a href="https://anix.vc/anime/jujutsu-kaisen-32n8/ep-1" onclick="setLastStream('Anix')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\anix.png"> </a><a href="https://gogoanimex.to/watch/tv-jujutsu-kaisen-32n8/ep-1" onclick="setLastStream('Gogoanimex')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\gogoanime.png"></a><a href="https://w1.zoro.se/" onclick="setLastStream('Zorox')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\zoro-logo.png"> </a><a href="https://aniwave.to/watch/jujutsu-kaisen.32n8/ep-1" onclick="setLastStream('AniWave')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\aniwave.png"> </a><a href="https://animixplay.name/v1/jujutsu-kaisen-tv/ep1" onclick="setLastStream('Animix.name')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\animixplay.png"> </a><a href="https://www.crunchyroll.com/jujutsu-kaisen" onclick="setLastStream('Crunchyroll')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\Crunchyroll-Logo.png"> </a><a href="https://www.netflix.com/title/81278456" onclick="setLastStream('Netflix')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\netflix-tv-logo-png-9.png"> </a><a href="https://www.funimation.com/shows/jujutsu-kaisen/" onclick="setLastStream('Funimation')" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\\hero\\Funimation-Logo.png"> </a><a href="https://youtu.be/4A_X-Dvl0ws" target="_blank" rel="noreferrer" class="stream-item"><div class="stream-ep"></div><img src="img\hero\youtube-logo-9.png"> </a></div>
+                </div>
+                <div class="tab-content"  style="display: none;">
+                    <div id="animeInfo"></div>
+                </div>
+            </div>
+            <div class="tab-content" style="display:none">
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Series Duration Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Anime Series Duration Calculator</h1>
+        <label for="animeName">Enter Anime Name: <br></label>
+        <input type="text" id="animeName" placeholder="Enter anime name...">
+        <label for="episodes"><br> Enter Number of Episodes: <br></label>
+        <input type="number" id="episodes" placeholder="Enter number of episodes...">
+        <br>
+        <button id="cd" onclick="calculateDuration()">Calculate Duration</button>
+        <p id="result"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+            </div>
+
+        </div>
+        
+        
+    </div>
+    <script>
+        function showTab(tabIndex) {
+            var tabs = document.querySelectorAll('.tab');
+            var tabContents = document.querySelectorAll('.tab-content');
+            
+            // Hide all tab contents
+            tabContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+            
+            // Remove active class from all tabs
+            tabs.forEach(function(tab) {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab content
+            tabContents[tabIndex].style.display = 'block';
+            
+            // Add active class to the selected tab
+            tabs[tabIndex].classList.add('active');
+            
+        }
+        function calculateDuration() {
+            const animeName = document.getElementById('animeName').value;
+            const episodes = parseInt(document.getElementById('episodes').value);
+            const averageWatchTimePerEpisodeInMinutes = 24; // Change this according to the average duration of an anime episode
+        
+            if (isNaN(episodes) || episodes <= 0) {
+                document.getElementById('result').innerText = "Please enter a valid number of episodes.";
+            } else {
+                const totalMinutes = episodes * averageWatchTimePerEpisodeInMinutes;
+                const totalHours = Math.floor(totalMinutes / 60);
+                const remainingMinutes = totalMinutes % 60;
+        
+                document.getElementById('result').innerText = `To finish "${animeName}" with ${episodes} episodes, it will take approximately ${totalHours} hours and ${remainingMinutes} minutes.`;
+            }
+        }
+        function fetchAnimeInfo() {
+            fetch('https://api.jikan.moe/v4/anime?q=death note&sfw')
+                .then(response => response.json())
+                .then(data => {
+                    const anime = data.data[0]; // Assuming the first result is the one we want
+
+                    // Extract relevant information
+                    const title = anime.title;
+                    
+                    const synopsis = anime.synopsis;
+                    const status = anime.status;
+                   
+                    const season = anime.season;
+                    const rating = anime.rating;
+                    const genres = anime.genres.map(genre => genre.name).join(', ');
+                    const studios = anime.studios.map(studio => studio.name).join(', ');
+                    const episodes = anime.episodes;
+
+                    // Update HTML content with fetched information
+                    const animeInfoDiv = document.getElementById('animeInfo');
+                    
+                    animeInfoDiv.innerHTML = `
+                        <h2>${title}</h2>
+                     
+                        <p><strong>Synopsis:</strong> ${synopsis}</p>
+                        <p><strong>Status:</strong> ${status}</p>
+                       
+                        <p><strong>Season:</strong> ${season}</p>
+                        <p><strong>Rating:</strong> ${rating}</p>
+                        <p><strong>Genres:</strong> ${genres}</p>
+                        <p><strong>Studios:</strong> ${studios}</p>
+                        <p><strong>episodes:</strong> ${episodes}</p>
+                    `;
+                    
+                    
+                    
+
+                    
+
+
+                    fetch(': https://api.jikan.moe/v4/anime?q=death note&sfw')
+                    .then(response => response.json())
+                    .then(data => {
+                        const anime = data.data[0]; // Assuming the first result is the one we want
+    
+                        // Extract relevant information
+                        const title = anime.title;
+    
+                        // Update input field with fetched title
+                        document.getElementById('animeName').value = title;
+                    })
+                    .catch(error => {
+                        console.error('Error fetching anime information:', error);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching anime information:', error);
+                });
+        }
+        
+
+        // Call the fetchAnimeInfo function when the page loads
+        fetchAnimeInfo();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToWatchlistButton = document.getElementById('atw');
+            const statusInput = document.getElementById('status-input');
+            
+            addToWatchlistButton.addEventListener('click', function() {
+                addToWatchlistButton.textContent = 'Updated!';
+                statusInput.value = 'watching'; // Set status to "Watching"
+            });
+        });
+
+        
+// Function to fetch anime data
+async function fetchAnimeData() {
+    try {
+      const response = await fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw');
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      
+      const data = await response.json();
+      
+      // Accessing the title of the first anime in the response
+      const animeTitle = data.data[0].title;
+      
+      // Displaying the title in the console
+      console.log('Title:', animeTitle);
+      
+      // You can further process and display the data in your frontend as needed
+      // For example, update the DOM to display the anime title
+      document.getElementById('title').textContent = animeTitle;
+    } catch (error) {
+      console.error('Error fetching anime data:', error);
+    }
+  }
+  
+  // Call the fetchAnimeData function to initiate the API request
+  fetchAnimeData();
+  
+        
+    </script>
+</body>
+</html>

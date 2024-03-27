@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Aniblix|Login</title>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("./iMAGES/ANIBLIX\ \(3\).jpg");
+            background-size: cover;
+            background-position: center;
+            height: 98vh;
+        }
+        .Anib_logo{
+            width: 125px;
+            height: 100px;
+        }
+        img {
+            height: 50%;
+            width: 100%;
+        }
+        form{
+            -webkit-box-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin: 0;
+        }
+
+        #card {
+            padding: 64px;
+            display: flex;
+            width: 400px;
+            max-width: 100%;
+            height: 330px;
+            flex-direction: column;
+            gap: 16px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-left: 10em;
+            margin-top: 7em;
+        }
+
+        .im {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: -0.6px;
+            color: #1e252b;
+            margin-bottom: 8px;
+            text-align: center;
+            font-family: "Nexa text",sans-serif;
+        }
+        .ap{
+            display: flex;
+            width: 48px;
+            height: 48px;
+            justify-content: center;
+            align-items: center;
+            background: rgba(155, 169, 230, 0.1);;
+            border: 1px solid rgba(155, 169, 230, 0.1);
+            border-radius: 8px;
+            margin-top: 1.5em;
+            cursor: pointer;
+            border-color: #3653cc;
+        }
+        .ap:hover{
+            transition: all 0.2s ease-in-out;
+            background: rgba(155, 169, 230, 0.3);
+            transform: scale(1.1);
+            box-shadow: 5px 5px 2px 0px #3653cc;
+        }
+        .b{
+            display: flex;
+            gap: 75px;
+            justify-content: center;
+            align-items: center;
+
+        }
+        .tab{
+            align-items: center;
+            text-align: center;
+            font-family: "Nexa text",sans-serif;
+        }
+        .t{
+            align-items: center;
+            text-align: center;
+            font-family: "Nexa text",sans-serif;
+        }
+        .de{
+            display: flex;
+            flex-direction: column;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: background,border-color 0.2s ease-out;
+            z-index: 0;
+            align-items: center;
+        }
+        input{
+            position: relative;
+            width: 428px;
+            height: 16px;
+            min-height: 24px;
+            font-size: 16px;
+            padding: 16px;
+            font-weight: 300;
+            line-height: 24px;
+            background: gainsboro;
+            box-sizing: content-box;
+            color: #1e252b;
+            flex: 1;
+            font-family: Nexa Text;
+            text-overflow: ellipsis;
+            outline: none;
+            z-index: 1;
+            margin: 20px;
+            color: #3653cc;
+            outline: 0;
+        }
+        input:hover{
+            /* transition: all 0.2s ease-in-out;
+            background: rgba(155, 169, 230, 0.3);
+            transform: scale(1.1); */
+            border-color: #3653cc;
+        }
+        .sub{
+            height: 3em;
+            width: 20em;
+            padding: 16px 32px;
+            background-color: gainsboro;
+            border-radius: 100px;
+            color: black;
+            font-family: inherit;
+            font-size: medium;
+            outline: none;
+            border: 0;
+            margin-top: 18px;
+        }
+        .sub:hover{
+            /* transition: all 0.2s ease-in-out;
+            transform: scale(0.8) */
+            background-color: #3653cc;
+            color: #ffffff;
+        }
+        .pa{
+            font-size: 12px;
+            font-weight: 300;
+            line-height: 18px;
+            color: #1e252b;
+            text-align: center;
+        }
+        #err1{
+            color: red;
+            margin: 0;
+            padding: auto;
+        }
+        #err2{
+            color: red;
+            margin: 0;
+            padding: auto;
+        }
+        .maindiv{
+            margin-top: -38px;
+        }
+        .support{
+            margin-top: 5em;
+        }
+        @media all and (max-width: 479px){
+            #card{
+                width: auto;
+                height: auto;
+            }
+            input{
+                width: auto;
+                height: auto;
+            }
+            .sub{
+                width: auto;
+                height: auto;
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+        <img src="./iMAGES/AniBlix (1).png" alt="Aniblix_logo" class="Anib_logo">
+        <main id="card">
+            <div class="maindiv">
+            <p style="color: #1e252b;" class="im">Log In</p>
+            <form id="mform" onsubmit="return validateForm(event)">
+                <div class="de">
+                    <label for="email"></label>
+                    <input type="email" name="e" id="email" placeholder="Email" autocomplete="current-email" />
+                    <p id="err1"></p>
+                    <input id="password" type="password" name="password" placeholder="Password" autocomplete="current-password" />
+                    <p id="err2"></p>
+                    <button type="submit" class="sub">Submit</button>
+                </div>
+            </form>
+            <form action="signup.html" id="form">
+                <button type="submit" class="sub" style="margin-left: 2.5em;">Sign up</button>
+            </form>
+            </div>
+        </main>
+        <script  src="index.js"></script>
+    </body>
+
+</html>

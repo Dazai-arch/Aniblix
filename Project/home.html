@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AniBlix</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <nav class="navb">
+        <a href="about.html"><img src="./iMAGES/AniBlix (2).png" alt="Logo" class="navbar-logo"></a>
+        <a href="about.html">About</a>
+        <a href="index.html">Track</a>
+        <a href="Booking.html">Book </a>
+        <a href="contact.html">contact </a>
+        <a href="https://www.instagram.com/aniblix69/"><img src="./iMAGES/instagram.png" alt="Instagram" class="social-logo"></a><a href="login.html"><img src="./iMAGES/avatar.png" alt="login" class="social-logo"></a>
+    </nav>
+  </header>
+  <div class="space"></div>
+  <div class="slider">
+    <div class="slides">
+        <img src="./iMAGES//project (2).jpg" alt="Slide 1">
+        <img src="./iMAGES//project (3).jpg" alt="Slide 2">
+        <img src="./iMAGES//project (4).jpg" alt="Slide 3">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10094;</button>
+    <button class="next" onclick="nextSlide()">&#10095;</button>
+    
+</div>
+    
+    <h1>ANIBLIX FOR EVERYONE</h1><br>
+    <p class="p1">Aniblix Embrace the Shadows Unleash the Power - Where Ninja tracks and Mindful Booking Converge in Anime Harmony!</p>
+        <div class="card-container">
+        <div class="card">
+          <img src="./iMAGES/1328396.png" alt="" class="img1">
+        </div>
+        <div class="card">
+          <img src="./iMAGES/AniBlix (2).png" alt="">
+        </div>
+        <div class="card">
+          <img src="./iMAGES/606275.jpg" alt="" class="img2">
+        </div>
+      </div>
+      <div class="containerr">
+        <div class="items">
+            <div class="itemm" id="start" onclick="showDetails('item5')">
+                
+                <p>ANIBLIX</p>
+            </div>
+            <div class="itemm" onclick="showDetails('item1')">
+                
+                <p>Know more about ANIBLIX</p>
+            </div>
+            <div class="itemm" onclick="showDetails('item2')">
+                
+                <p>What is ANIME</p>
+            </div>
+            <div class="itemm" onclick="showDetails('item3')">
+                
+                <p>ANIBLIX:Tracking</p>
+            </div>
+            <div class="itemm" id="end" onclick="showDetails('item4')">
+
+                <p>ANIBLIX:Booking</p>
+            </div>
+        </div>
+        <div class="details" id="itemDetails">
+            
+        </div>
+    </div><br>
+<footer>
+  <p class="f1">&copy; Aniblix | All rights reserved.</p>
+
+</footer>
+ <script src="script.js"></script>
+  
+    
+
+</body>
+</html>

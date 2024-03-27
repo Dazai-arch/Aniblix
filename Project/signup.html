@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniblix | Sign Up</title>
+    <style>
+        /* CSS from file1.html */
+        body{
+            background-image: url("./iMAGES/ANIBLIX\ \(3\).jpg");
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            background-attachment: fixed;
+        }
+
+        form{
+            -webkit-box-align: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin: 0;
+        }
+
+        .Anib_logo{
+            width: 125px;
+            height: 100px;
+        }
+        #card {
+            padding: 64px;
+            display: flex;
+            width: 400px;
+            max-width: 100%;
+            height: 330px;
+            flex-direction: column;
+            gap: 16px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-left: 10em;
+            margin-top: 7em;
+            max-width: 500px;
+        }
+   
+        .im {
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            letter-spacing: -0.6px;
+            color: #1e252b;
+            margin-bottom: 8px;
+            text-align: center;
+            font-family: "Nexa text",sans-serif;
+        }
+
+        .de{
+            display: flex;
+            flex-direction: column;
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            box-sizing: border-box;
+            transition: background,border-color 0.2s ease-out;
+            z-index: 0;
+            align-items: center;
+        }
+        input{
+            position: relative;
+            width: 428px;
+            height: 16px;
+            min-height: 24px;
+            font-size: 16px;
+            padding: 16px;
+            font-weight: 300;
+            line-height: 24px;
+            background: gainsboro;
+            box-sizing: content-box;
+            color: #1e252b;
+            flex: 1;
+            font-family: Nexa Text;
+            text-overflow: ellipsis;
+            outline: none;
+            z-index: 1;
+            margin: 20px;
+            color: #3653cc;
+            outline: 0;
+        }
+        input:hover{
+            border-color: #3653cc;
+        }
+        .sub{
+            height: 3em;
+            width: 20em;
+            padding: 16px 32px;
+            background-color: gainsboro;
+            border-radius: 100px;
+            color: black;
+            font-family: inherit;
+            font-size: medium;
+            outline: none;
+            border: 0;
+            margin: 0.5em;
+        }
+        .sub:hover{
+            background-color: #3653cc;
+            color: #ffffff;
+        }
+        #err1{
+            color: red;
+            padding: auto;
+            margin: 0;
+        }
+        #err2{
+            color: red;
+            padding: auto;
+            margin: 0;
+        }
+        @media screen and (max-width: 768px) {
+            #card {
+                margin: 0 auto;
+                margin-top: 2em;
+                padding: 32px;
+            }
+            input {
+                width: 100%;
+            }
+            .sub {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./iMAGES/AniBlix (1).png" alt="Aniblix Logo" class="Anib_logo">
+    <main id="card">
+        <p style="color: #1e252b;" class="im">Sign Up</p>
+        <!-- Changed form id to match the JavaScript -->
+        <form id="signupForm" onsubmit="return validateForm(event)" method="POST">
+            <div class="de">
+                <!-- Changed input name attributes to match the JavaScript -->
+                <input type="email" name="email" id="email" placeholder="Email">
+                <p id="err1"></p>
+                <input id="password" type="password" name="password" placeholder="Password">
+                <p id="err2"></p>
+                <button type="submit" class="sub">Submit</button>
+            </div>
+        </form>
+    </main>
+    <script src="index1.js"></script>
+</body>
+</html>
