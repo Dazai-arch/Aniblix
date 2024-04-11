@@ -27,7 +27,7 @@ fetch('http://localhost:3000/movie-details', {
     document.querySelector('.movie1').src = data.movie_img;
     document.querySelector('.name').innerHTML = `${data.title}<br><span class="sp1">${data.subtitle}</span>`;
     document.querySelector('.desc').textContent = data.description;
-
+    document.querySelector('.poster').src = data.movieback_img;
     // Parse the release date string
     const releaseDate = new Date(data.release_date);
 

@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aniblix|Booking</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Smooch+Sans:wght@100..900&display=swap" rel="stylesheet">
+    <title>Aniblix</title>
     <style>
         body{
             background-color: rgba(0, 0, 0, 0.941);
@@ -82,76 +77,84 @@
             width: 30px;
             float: left;
         }
-        #now{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #00BFFF;
-            margin-left: 1em;
-        }
-        #te{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 7em;
-        }
-        .re{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #00BFFF;
-            margin-left: 1em; 
-            margin-top: 2em;
-        }
-        #rec{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: #ffffff;
-            text-align: center;
-            margin-top: 7em;
-        }
         .footer{
             color: #00BFFF;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             font-size: 20px;
-            position: fixed;
+            position: absolute;
             left: 0;
             bottom: 0;
             width: 100%;
             text-align: center;
             padding: 10px 0;
         }
-        .now-showing{
-            margin-top: 2em;
-            align-items: center;
-            display: block;
-            width: 33vh;
-            margin-left: 1em;
-        }
-        .movie1{
-            height: 35vh;
-            width: 27vh;
-            margin-left: 2em;
-            margin-top: 1em;
-            border-radius: 20px;
-            border: #00BFFF solid 2px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .movie1:hover{
-            transform: scale(1.05); /* Scale up the image a bit */
-            box-shadow: 0 0 20px #00bfffb9;
-        }
-        .m1{
+        .movie_name{
             color: #00BFFF;
-            font-weight: bold;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 30px;
-            text-align: center;
+            padding-left: 40px;
         }
-        .sp1{
+        .date_n{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+            padding: 0 40px;
+        }
+        .db1{
+            color: #ffffff;
+            background-color:  rgba(0, 0, 0, 0.941);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 200;
+            height: 46px;
+            width: 46px;
+            border-radius: 2px;
+        }
+        .db1:hover{
+            border: none;
+            outline: 0;
+            background-color: #00BFFF;
+        }
+        .cinema_name{
+            padding: 10px 40px 30px;
+            margin: 0;
+        }
+        .ccc1{
             color: #00BFFF;
-            font-weight: bold;
             font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            font-size: 20px;
-        }
-        .m11{
             text-decoration: none;
+        }
+        .dtime{
+            display: flex;
+            flex-direction: row;
+            padding: 0 40px 10px;
+            gap: 20px;
+        }
+        .dtime2{
             color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-decoration: none;
+            font-weight: 400;
+        }
+        .dtime1{
+            background-color: rgba(0, 0, 0, 0.941);
+            border: #00BFFF  solid 1px ;
+            outline: 0;
+            height: 40px;
+            padding: 0 40px;
+        }
+        .dtime1:hover{
+            outline: 0;
+        }
+        .selected {
+            background-color: #00BFFF !important;
+        }
+        .movie_content{
+            border: #00BFFF solid  1px;
+            padding: 10px 40px 20px;
+            border-radius: 20px;
+        }
+        .mmmm{
+            padding: 20px 20px;
         }
         @media (max-width: 900px) {
             .navb{
@@ -182,21 +185,8 @@
             .footer{
                 font-size: 8px;
             }
-            h1{
-                font-size: 20px;
-            }
-            .movie1{
-                height: 250px;
-                width: 200px;
-            }
-            .m1{
-                font-size: 17px;
-                padding: 0;
-                margin: 0;
-            }
-            .sp1{
-                font-size: 15px;
-                padding: 0;
+            .movie_content{
+                padding: 3px 10px;
             }
         }
     </style>
@@ -225,11 +215,36 @@
             <a href="login.html"><img src="./iMAGES/avatar(@2).png" alt="login_logo" class="log"></a>
         </div>
     </header>
-    <h1 id="now">Now Showing</h1>
-    <div class="now-showing">
-        
+
+    <h1 class="movie_name"></h1>
+    <div class="date">
+        <ul class="date_n">
+            <li class="d1"><button class="db1 selected" onclick="handleButtonClick(this)" value="1 Apr">1<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="2 Apr">2<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="3 Apr">3<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="4 Apr">4<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="5 Apr">5<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="6 Apr">6<br><span>Apr</span></button></li>
+            <li class="d1"><button class="db1" onclick="handleButtonClick(this)" value="7 Apr">7<br><span>Apr</span></button></li>
+        </ul>
     </div>
+    <div class="mmmm">
+        <div class="movie_content">
+            <div class="pvr_d">
+                <h2 class="cinema_name"><a href="#" class="ccc1">Balaji Cinema 4K Dolby Atmos RGB Laser: Tavarekere</a></h2>
+            </div>
+            <div class="dtime">
+                <button class="dtime1"><a href="seats.html" class="dtime2" value="2:30 PM">2:30 PM</a></button>
+                <button class="dtime1"><a href="seats.html" class="dtime2" value="4:30 PM">4:30 PM</a></button>
+                <button class="dtime1"><a href="seats.html" class="dtime2" value="6:30 PM">6:30 PM</a></button>
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div class="footer">&copy; Aniblix | All rights reserved.(Available in Bengaluru ONLY)</div>
-    <script src="booking.js"></script>
+    <script src="boo.js"></script>
 </body>
 </html>

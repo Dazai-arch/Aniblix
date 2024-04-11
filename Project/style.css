@@ -1,0 +1,314 @@
+body{
+    margin: 0;
+    overflow-x: hidden;
+    background-color: black;
+}
+header{
+    height: 5em;
+    background-color: rgb(139, 139, 139, 0.48);
+    position: sticky;
+    transition: background-color 0.4s ease-in-out;
+    z-index: 5000;
+    top: 0;
+    width: 100%;
+}
+
+header.scrolled{
+    background-color: #ffffff;
+    opacity: 0.98;
+}
+header.scrolled nav a{
+    color: black;
+}
+
+
+header.scrolled nav a:hover{
+    color: rgb(255, 66, 66);
+}
+
+.main_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0;
+}
+
+.img1{
+    height: 71px;
+    width: 86px;
+}
+.traverse{
+    display: flex;
+    gap: 120px;
+}
+.trav{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.trav:hover{
+    color: rgba(0, 0, 0, 0.645);
+}
+
+.insta{
+    height: 32px;
+    width: 36px;
+}
+.avata{
+    height: 32px;
+    width: 40px;
+}
+.social{
+    display: flex;
+    gap:  30px;
+}
+
+  .hero{
+    width: 100%;
+    height: 700px;
+    opacity: 0.3;
+    margin-top: -80px;
+  }
+  .container{
+    position: relative;
+  }
+.slider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    max-width: 100%;
+  }
+  
+  .slides {
+    display: flex;
+    overflow-x: hidden;
+  
+  }
+  
+  .slides img {
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+
+  h1 {
+    text-align: center;
+    padding-top: 20px;
+    color: #ffffff;
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 5em;
+  }
+
+  .p1{
+    color: #ffffff;
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 3em;
+    text-align: center;
+    padding: 0 30px;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: row; /* Display items in a row */
+    gap: 20px; /* Adjust the gap between items */
+    padding: 10px 30px;
+    overflow-x: auto;
+
+}
+
+.detaail1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.image {
+    height: 300px;
+    width: 500px;
+}
+
+.p2 {
+    color: #ffffff;
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+.detail::-webkit-scrollbar {
+    height: 4px;
+    width: 5px; 
+    outline: 2px solid rgb(255, 66, 66);
+    outline-offset: 2px;
+    border-radius: 20px;
+}
+
+.detail::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 66, 66); /* Set the color of the scrollbar thumb */
+    border-radius: 20px; /* Set the border radius */
+}
+h2{
+    color: #ffffff;
+    padding: 0 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.writer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.wdet{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.w1{
+    padding: 0 30px;
+    height: 236px;
+    width: 218px;
+    border-radius: 356px;
+    opacity: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.w1:hover {
+    transform: scale(0.95); /* Scale up the image a bit */
+    box-shadow: 0 0 20px black;
+}
+h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff
+}
+.ap{
+    color: #ffffff;
+    font-family: "Smooch Sans", sans-serif;
+    font-size: 16px;
+}
+.det{
+    padding: 30px;
+}
+
+footer{
+    height: 2em;
+    background-color: rgb(255, 66, 66);
+}
+
+.foot{
+    color: #ffffff;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 300;
+    padding-top: 5px;
+}
+
+@media (max-width: 850px) {
+    .img1{
+        height: 40px;
+        width: 50px;
+    }
+    .traverse{
+        gap: 20px;
+    }
+    .insta{
+        height: 20px;
+        width: 20px;
+    }
+    .avata{
+        height: 20px;
+        width: 20px;
+    }
+    .trav{
+        font-size: 10px;
+    }
+    header{
+        height: 3em;
+    }
+    .main_div{
+        padding: 0 10px 0;
+    }
+    h1{
+        font-size: small;
+    }
+    .p1{
+        font-size: x-small;
+    }
+    .image{
+        height: 250px;
+        width: 350px;
+    }
+    .p2{
+        font-size: smaller;
+    }
+    .w1{
+        padding: 0;
+        height: 50px;
+        width: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .wimage{
+        display: flex;
+        justify-content: center;
+    }
+    h2{
+        font-size: small;
+        text-align: center;
+    }
+    h3{
+        font-size: small;
+        text-align: center;
+    }
+    .ap{
+        font-size: x-small;
+    }
+    .writer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        align-items: center;
+    }
+    .wdet{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 2px;
+    }
+    .det{
+        padding: 10px 20px;
+    }
+    .foot{
+        font-size: 8px;
+    }
+    .hero{
+        height: 400px;
+    }
+    .slides{
+        height: 250px;
+        width: 400px;
+    }
+}

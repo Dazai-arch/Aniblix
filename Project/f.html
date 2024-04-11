@@ -6,24 +6,16 @@
     <title>Popup bhailog</title>
     <style>
         body {
-            background-color: rgba(0, 0, 0, 0); /* Semi-transparent background */
- 
+            background-color: #222;
             margin: 0;
-            display: grid;
-            place-items: center;
-            height: 100vh;
-        }
-        #close-button{
-            height: 5vh;
-        
-            position: absolute; /* Position the close button absolutely */
-            top: 10px; /* Adjust the top position as needed */
-            right: 10px;
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         
         #container {
-            max-width: 450px;
+            max-width: 90%;
             width: 100%;
             background-color: #00000038;
             border: 1px solid #353535;
@@ -38,10 +30,39 @@
                 "title title"
                 "description description"
                 "card card";
-                
             grid-gap: 10px;
-
+            border-color: white;
+            border-style: solid;
         }
+        @media screen and (max-width: 768px) {
+            /* Adjust styles for smaller screens here */
+            #container {
+                max-width: 90%;
+                margin: 0 auto;
+            }
+        
+            /* Adjust other specific styles as needed */
+            #image-banner {
+                margin-left: 0;
+                margin-top: 0;
+                width: 100%;
+                height: auto;
+            }
+            #title {
+                font-size: 16px;
+            }
+        }
+        
+        /* For screens smaller than 576px (typical smartphones) */
+        @media screen and (max-width: 576px) {
+            /* Adjust styles for even smaller screens here */
+            #container {
+                padding: 10px;
+            }
+        
+            /* Adjust other specific styles as needed */
+        }
+        
         
         #header {
             grid-area: header;
@@ -62,13 +83,14 @@
           margin-left: 111px;
           margin-top: -210px;
           z-index: 20;
-     
+          border-style: solid;
+          border-color:white ;
         }
         
         #atw {
             grid-area: button;
             border: none;
-            background-color: #0025f5;
+            background-color: #222;
             color: white;
             padding: 10px;
             cursor: pointer;
@@ -94,7 +116,7 @@
         #title {
             grid-area: title;
             font-size: 19px;
-            color: rgb(0, 0, 0);
+            color: aliceblue;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         
@@ -127,24 +149,18 @@
         }
         
         .tab.active {
-            background-color: #000000;
+            background-color: #626060;
         }
         
         /* Content area styling */
         .content {
             padding: 20px;
         }
-        #animeImagecontainer img{
-            height: 261px;
-            border-color: white;
-            border-style: solid;
-            margin-left: 16px;
-        }
 
         /* Episode item styling */
         .ep-item {
             padding: 5px;
-            background-color: #1a1d2c;
+            background-color: #807e7e;
             color: white;
             border-radius: 5px;
             margin-bottom: 5px;
@@ -162,12 +178,12 @@
             padding-top: 20px;
         }
         .stream-item{
-            color: #b1c7d200;
+            color: #b1c7d2;
             margin: 4px;
-            background-color: #ffffff00;
+            background-color: #585858;
             flex-grow: 1;
             padding: 0px 7px;
-         
+            border: 1px solid #0f0f0f;
             border-radius: 4px;
             text-decoration: none;
         }
@@ -217,7 +233,7 @@
         #result {
             font-weight: bold;
             margin-top: 20px;
-            color: rgb(0, 0, 0);
+            color: white;
             font-size: 20px;
         }
         #animeName{
@@ -239,13 +255,13 @@
             margin-top: 20px;
         }
         label{
-            color: rgb(0, 0, 0);
+            color: white;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-weight: bold;
         }
         #animeInfo{
             font-size: 20px;
-            color: rgb(44, 44, 44);
+            color: white;
             overflow: hidden;
             animation: fadeIn 1s ease forwards;
             
@@ -282,47 +298,43 @@
         }
 
         @media screen and (max-width: 768px) {
-            /* Adjust styles for smaller screens here */
             #container {
                 max-width: 90%;
                 margin: 0 auto;
             }
 
-            /* Adjust other specific styles as needed */
+            #image-banner {
+                width: 80%;
+                margin-left: 0;
+                margin-top: -30%;
+            }
         }
 
-        /* For screens smaller than 576px (typical smartphones) */
         @media screen and (max-width: 576px) {
-            /* Adjust styles for even smaller screens here */
-            #container {
-                padding: 10px;
+            #image-banner {
+                width: 100%;
+                margin-top: -20%;
             }
 
-            /* Adjust other specific styles as needed */
+            .container {
+                height: auto;
+            }
+
+            #animeName,
+            #episodes {
+                width: 90%;
+            }
         }
         
-        #animeImageContainer img{
-            height: 260px;
-            margin-left: 20px;
-            border: white;
-            border: solid;
-            margin-top: -12px;
-
-        }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="header">
-            <img src="img\\download.jpeg" alt="">
-            
+            <img src="img\hero\image-banner.jpg" alt="">
         </div>
-        <img src="img\\hero\\close.png" id="close-button">
-        <div   id="image-banner">
-           <div  id="animeImageContainer" height="" width=""></div>
-        </div>
-     
-       
+        <img src="img\hero\hero-4.jpg" id="image-banner">
+        <button id="atw">Add To Watchlist</button>
         <select id="status-input" onchange="statusChange()">
             <option value="untrack" selected="">Untracked</option>
             <option value="watching">Watching</option>
@@ -331,9 +343,7 @@
             <option value="finished">Completed</option>
         </select>
         <div id="title">Boruto: Naruto next generations</div>
-        <div id="des">The story revolves around a high school student named Light Yagami who stumbles upon a mysterious notebook called the “Death Note.”
-            The Death Note grants its user the power to kill anyone whose name and face they know, simply by writing the person’s name in the notebook.
-            Driven by a desire to rid the world of criminals and create a utopian society, Light takes on the identity of “Kira” and begins a deadly game of cat and mouse with the enigmatic detective L...</div>
+        <div id="des">Boruto: Naruto Next Generations" follows Naruto's son, Boruto, as he navigates life as a ninja in a world shaped by his father's legacy, facing new challenges and forming his own path.</div>
         <div class="card">
             <!-- Tabs -->
             <div class="tab" onclick="showTab(0)">Streams</div>
@@ -378,24 +388,15 @@
 </head>
 <body>
     <div class="container">
- 
-        <div class="input-section">
-          <label for="animeName">Enter Anime Name:</label>
-          <input type="text" id="animeName" placeholder="Enter anime name...">
-        </div>
-        <div class="input-section">
-          <label for="episodesWatched">Episodes Watched:</label>
-          <input type="number" id="episodesWatched" min="0" placeholder="0">
-        </div>
-        <button onclick="searchAnime()">Search</button>
-        <div id="animeInfo" class="anime-info hidden"></div>
-        <div id="calculator" class="calculator hidden">
-          <label for="pace">Enter Your Pace (Episodes/Day):</label>
-          <input type="number" id="pace" min="1" value="1">
-          <button onclick="calculateDays()">Calculate</button>
-          <div id="result" class="result"></div>
-        </div>
-      </div>
+        <h1>Anime Series Duration Calculator</h1>
+        <label for="animeName">Enter Anime Name: <br></label>
+        <input type="text" id="animeName" placeholder="Enter anime name...">
+        <label for="episodes"><br> Enter Number of Episodes: <br></label>
+        <input type="number" id="episodes" placeholder="Enter number of episodes...">
+        <br>
+        <button id="cd" onclick="calculateDuration()">Calculate Duration</button>
+        <p id="result"></p>
+    </div>
 
     <script src="script.js"></script>
 </body>
@@ -407,21 +408,6 @@
         
     </div>
     <script>
-        function calculateDuration() {
-            const animeName = document.getElementById('animeName').value;
-            const episodes = parseInt(document.getElementById('episodes').value);
-            const averageWatchTimePerEpisodeInMinutes = 24; // Change this according to the average duration of an anime episode
-        
-            if (isNaN(episodes) || episodes <= 0) {
-                document.getElementById('result').innerText = "Please enter a valid number of episodes.";
-            } else {
-                const totalMinutes = episodes * averageWatchTimePerEpisodeInMinutes;
-                const totalHours = Math.floor(totalMinutes / 60);
-                const remainingMinutes = totalMinutes % 60;
-        
-                document.getElementById('result').innerText = `To finish "${animeName}" with ${episodes} episodes, it will take approximately ${totalHours} hours and ${remainingMinutes} minutes.`;
-            }
-        }
         function showTab(tabIndex) {
             var tabs = document.querySelectorAll('.tab');
             var tabContents = document.querySelectorAll('.tab-content');
@@ -443,9 +429,23 @@
             tabs[tabIndex].classList.add('active');
             
         }
-      
+        function calculateDuration() {
+            const animeName = document.getElementById('animeName').value;
+            const episodes = parseInt(document.getElementById('episodes').value);
+            const averageWatchTimePerEpisodeInMinutes = 24; // Change this according to the average duration of an anime episode
+        
+            if (isNaN(episodes) || episodes <= 0) {
+                document.getElementById('result').innerText = "Please enter a valid number of episodes.";
+            } else {
+                const totalMinutes = episodes * averageWatchTimePerEpisodeInMinutes;
+                const totalHours = Math.floor(totalMinutes / 60);
+                const remainingMinutes = totalMinutes % 60;
+        
+                document.getElementById('result').innerText = `To finish "${animeName}" with ${episodes} episodes, it will take approximately ${totalHours} hours and ${remainingMinutes} minutes.`;
+            }
+        }
         function fetchAnimeInfo() {
-            fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw')
+            fetch('https://api.jikan.moe/v4/anime?q=Boruto:%20Naruto%20Next%20Generations&sfw')
                 .then(response => response.json())
                 .then(data => {
                     const anime = data.data[0]; // Assuming the first result is the one we want
@@ -461,14 +461,12 @@
                     const genres = anime.genres.map(genre => genre.name).join(', ');
                     const studios = anime.studios.map(studio => studio.name).join(', ');
                     const episodes = anime.episodes;
-                   
 
                     // Update HTML content with fetched information
                     const animeInfoDiv = document.getElementById('animeInfo');
                     animeInfoDiv.innerHTML = `
                         <h2>${title}</h2>
-                    
-                     
+                        <p><strong>Description:</strong> ${description}</p>
                         <p><strong>Synopsis:</strong> ${synopsis}</p>
                         <p><strong>Status:</strong> ${status}</p>
                        
@@ -477,10 +475,9 @@
                         <p><strong>Genres:</strong> ${genres}</p>
                         <p><strong>Studios:</strong> ${studios}</p>
                         <p><strong>episodes:</strong> ${episodes}</p>
-                        
                     `;
 
-                    fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw')
+                    fetch('https://api.jikan.moe/v4/anime?q=Boruto:%20Naruto%20Next%20Generations&sfw')
                     .then(response => response.json())
                     .then(data => {
                         const anime = data.data[0]; // Assuming the first result is the one we want
@@ -512,166 +509,7 @@
                 statusInput.value = 'watching'; // Set status to "Watching"
             });
         });
-        async function fetchAnimeData() {
-            try {
-              const response = await fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw');
-              
-              if (!response.ok) {
-                throw new Error('Network response was not ok');
-              }
-              
-              const data = await response.json();
-              
-              // Accessing the title of the first anime in the response
-              const animeTitle = data.data[0].title;
-              
-              // Displaying the title in the console
-              console.log('Title:', animeTitle);
-              
-              // You can further process and display the data in your frontend as needed
-              // For example, update the DOM to display the anime title
-              document.getElementById('title').textContent = animeTitle;
-            } catch (error) {
-              console.error('Error fetching anime data:', error);
-            }
-          }
-          async function searchAnime() {
-            const animeName = document.getElementById('animeName').value;
-            const response = await fetch(`https://graphql.anilist.co`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json',
-              },
-              body: JSON.stringify({
-                query: `
-                  query ($search: String) {
-                    Media(search: $search, type: ANIME) {
-                      title {
-                        romaji
-                      }
-                      episodes
-                      duration
-                    }
-                  }
-                `,
-                variables: { search: animeName }
-              })
-            });
-            const data = await response.json();
-            if (data.data.Media) {
-              const anime = data.data.Media;
-              const animeInfo = document.getElementById('animeInfo');
-              animeInfo.innerHTML = `
-                <h2>${anime.title.romaji}</h2>
-                <p>Total Episodes: ${anime.episodes}</p>
-              `;
-              document.getElementById('calculator').classList.remove('hidden');
-            } else {
-              alert('Anime not found. Please try again.');
-            }
-          }
-        
-          function calculateDays() {
-            const totalEpisodes = parseInt(document.getElementById('animeInfo').querySelector('p').textContent.split(':')[1].trim());
-            const episodesWatched = parseInt(document.getElementById('episodesWatched').value);
-            const pace = parseInt(document.getElementById('pace').value);
-            const remainingEpisodes = totalEpisodes - episodesWatched;
-            const days = Math.ceil(remainingEpisodes / pace);
-            const hours = days * 24;
-            document.getElementById('result').innerText = `At your pace, it will take approximately ${days} days (${hours} hours) to finish watching this anime.`;
-          }
-          
-          // Call the fetchAnimeData function to initiate the API request
-          fetchAnimeData();
-          function goBack() {
-            window.history.back();
-        }
-    
-        // Event listener for the close button
-        document.getElementById('close-button').addEventListener('click', function() {
-            goBack(); // Call the goBack function when the close button is clicked
-        });
 
-        async function fetchAnimeImage() {
-            try {
-                // GraphQL query to fetch anime information including the image
-                const query = `
-                    query {
-                        Media(search: "Chainsaw Man", type: ANIME) {
-                            coverImage {
-                                extraLarge
-                            }
-                        }
-                    }
-                `;
-                
-                // Fetch data from AniList API
-                const response = await fetch('https://graphql.anilist.co', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
-                    body: JSON.stringify({ query })
-                });
-                
-                // Parse response JSON
-                const data = await response.json();
-                
-                // Extract the anime image URL from the response
-                const animeImageURL = data.data.Media.coverImage.extraLarge;
-
-                // Display the anime image in the container
-                const animeImageContainer = document.getElementById('animeImageContainer');
-                animeImageContainer.innerHTML = `<img src="${animeImageURL}" alt="Chainsaw Man">`;
-            } catch (error) {
-                console.error('Error fetching anime image:', error);
-            }
-        }
-
-        // Call the fetchAnimeImage function when the page loads
-        window.onload = fetchAnimeImage;
-
-        async function fetchAnimeImage() {
-            try {
-                // GraphQL query to fetch anime information including the image
-                const query = `
-                    query {
-                        Media(search: "DEATH NOTE", type: ANIME) {
-                            coverImage {
-                                extraLarge
-                            }
-                        }
-                    }
-                `;
-                
-                // Fetch data from AniList API
-                const response = await fetch('https://graphql.anilist.co', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json',
-                    },
-                    body: JSON.stringify({ query })
-                });
-                
-                // Parse response JSON
-                const data = await response.json();
-                
-                // Extract the anime image URL from the response
-                const animeImageURL = data.data.Media.coverImage.extraLarge;
-
-                // Display the anime image in the container
-                const animeImageContainer = document.getElementById('animeImageContainer');
-                animeImageContainer.innerHTML = `<img src="${animeImageURL}" alt="Chainsaw Man">`;
-            } catch (error) {
-                console.error('Error fetching anime image:', error);
-            }
-        }
-
-        // Call the fetchAnimeImage function when the page loads
-        window.onload = fetchAnimeImage;
         
     </script>
 </body>

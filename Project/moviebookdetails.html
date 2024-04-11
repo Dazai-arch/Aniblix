@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniblix</title>
+    <style>
+        body{
+            background-color: rgba(0, 0, 0, 0.941);
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            background-color: #00050d;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+        }
+        .Anib_logo{
+            width: 125px;
+            height: 100px;
+        }
+        .nav1{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 8em;
+            padding-left: 200px;
+        }
+        .nav1 a{
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: 400;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .search{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;   
+            align-items: center;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #sbtn{
+            background-color: #00BFFF;
+            border: none;
+            height: 30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #ffffff;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 16px;
+            padding-left: 14px;
+            padding-right: 30px; 
+            display: inline;
+        }
+        #sbtn:focus{
+            border: none;
+            outline: 0;
+        }
+        .search_icon {
+            position: absolute;
+            right: 10px; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .log{
+            height: 30px;
+            width: 30px;
+            float: left;
+        }
+        .footer{
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .movie1 {
+            height: 311px;
+            width: 281px;
+            border-radius: 20px;
+            border: #00BFFF solid 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .movie1:hover{
+            transform: scale(1.05); /* Scale up the image a bit */
+            box-shadow: 0 0 20px #00bfffb9;
+        }
+    
+
+        
+
+        .center-img {
+            float: left;
+        }
+
+        .sp1{
+            color: #00BFFF;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+        }
+        .name{
+            text-decoration: none;
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+        }
+
+        
+        
+
+        .desc{
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .release_date{
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        .btn{
+            background-color: #00BFFF;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-weight: 400;
+        }
+        .btn:hover{
+            outline: 0;
+            border: none;
+        }
+        .btn1{
+            background-color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+            color: #ffffff;
+            border: none;
+            border-radius: 20px;
+            font-weight: 400s;
+        }
+        .btn1:hover{
+            outline: 0;
+            border: none;
+        }
+
+        .movie_content{
+            margin-left: 20px;
+            
+        }
+        .container{
+            margin-bottom: 10px;
+            margin-top: 1em;
+            position: relative;
+        }
+        .cast{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-top: 2em;
+            color: #00BFFF;
+            margin-left: 2em;
+        }
+        .ca{
+            list-style-type: none;
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            margin: 1em;
+            display: flex;
+            flex-direction: row;
+            gap: 2em;
+        }
+        .poster{
+            height: 550px;
+            width: 100%;
+            opacity: 0.3;
+        }
+        .div-flex {
+            position: absolute;
+            top: 115px;
+            left: 14px;
+            display: flex;
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            padding: 0px 20px;  
+        }
+        .cast1{
+            border-radius: 60px;
+            opacity: 1;
+            height: 120px;
+            width: 120px;
+            border: #00BFFF solid 2px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cast1:hover{
+            transform: scale(1.05); /* Scale up the image a bit */
+            box-shadow: 0 0 20px #00bfffb9;
+        }
+        .time{
+            color: #00BFFF;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 16px;
+        }
+        .booktickets{
+            background-color: #00BFFF;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 20px;
+            color: #ffffff;
+            border: none;
+            width: 100%;
+            font-weight: 400;
+            height: 60px;
+            border-radius: 40px;
+            transition: background-color 0.3s ease;
+        }
+        .booktickets:hover{
+            background-color: #0077cc;
+            outline: 0;
+            border: none;
+        }
+        @media (max-width: 900px) {
+            .navb{
+                font-size: 8px;
+            }
+            .Anib_logo{
+                height: 50px;
+                width: 50px;
+            }
+            .log{
+                height: 15px;
+                width: 15px;
+            }
+            #sbtn{
+                font-size: 8px;
+            }
+            #sbtn{
+                height: 19px;
+                width: 50px;
+            }
+            .nav1{
+                gap:7em;;
+                padding-left: 10px;
+            }
+            .sbmt{
+                height: 10px;
+            }
+            .footer{
+                font-size: 8px;
+            }
+            .movie1{
+                height: 250px;
+                width: 200px;
+            }
+            .name{
+                font-size: 18px;
+            }
+            .sp1{
+                font-size: 16px;
+            }
+            .desc{
+                font-size: 11px;
+            }
+            .cast{
+                font-size: 25px;
+            }
+            .cast1{
+                height: 100px;
+                width: 100px;
+            }
+            .cc{
+                font-size: 18px;
+            }
+            .btn{
+                font-size: small;
+            }
+            .btn1{
+                font-size: small;
+            }
+            .time{
+                font-size: 10px;
+            }
+            .booktickets{
+                height: 40px;
+                font-size: 17px;
+                width: 50%;
+                display: block;
+                margin: 0 auto;
+            }
+            .poster{
+                height: 450px;
+            }
+            .div-flex{
+                top: 70px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./iMAGES/AniBlix (1).png" alt="Aniblix Logo" class="Anib_logo">
+        <div class="navb">
+            <ul class="nav1">
+                <li class="home"><a href="home.html">Home</a></li>
+                <li class="cs"><a href="upcoming.html">Coming Soon</a></li>
+                <li class="tr"><a href="index.html">Track</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <div class="search-container">
+                <form action="booksearch.html">
+                    <input type="text" placeholder="search" id="sbtn" name="search">
+                </form>
+                <div class="search_icon">
+                    <img src="./iMAGES/Search.png" alt="search" class="sbmt" height="20vh">
+                </div>
+            </div>
+        </div>
+        <div class="loglogo">
+            <a href="login.html"><img src="./iMAGES/avatar(@2).png" alt="login_logo" class="log"></a>
+        </div>
+    </header>
+
+    <div class="container">
+        <img src="?" alt="" class="poster">
+        <div class="div-flex">
+    
+            <div class="center-img">
+                <a href="?" class="hea"><img src="?" alt="cmovie1" class="movie1"></a>
+            </div>
+            <div class="movie_content">
+                <h2 class="name"><br><span class="sp1"></span></h2>
+                <p class="desc"></p>
+                <h3 class="time"></h3>
+                <button class="btn">2D</button>
+                <button class="btn1">Japenese</button>
+                <br>
+            </div>
+        </div>
+        <div>
+            <h1 class="cast">Cast: Actors</h1>
+            <div class="list">
+                <ul class="ca">
+                    <li class="i1"><img src="?" alt="c1" class="cast1"><br><span class="cc"></span></li>
+                    <li class="i2"><img src="?" alt="c2" class="cast1"><br><span class="cc"></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button class="booktickets"><a href="?" style="text-decoration: none; color:#ffffff;">BOOK TICKETS</a></button>
+
+
+
+
+    <div class="footer">&copy; Aniblix | All rights reserved.(Available in Bengaluru ONLY)</div>
+    <script src="moviebookdetails.js"></script>
+</body>
+</html>

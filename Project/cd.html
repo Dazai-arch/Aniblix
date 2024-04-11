@@ -330,10 +330,8 @@
             <option value="planned">Plan to Watch</option>
             <option value="finished">Completed</option>
         </select>
-        <div id="title">Boruto: Naruto next generations</div>
-        <div id="des">The story revolves around a high school student named Light Yagami who stumbles upon a mysterious notebook called the “Death Note.”
-            The Death Note grants its user the power to kill anyone whose name and face they know, simply by writing the person’s name in the notebook.
-            Driven by a desire to rid the world of criminals and create a utopian society, Light takes on the identity of “Kira” and begins a deadly game of cat and mouse with the enigmatic detective L...</div>
+        <div id="title">Grand blue</div>
+        <div id="des">Grand Blue (also known as Grand Blue Dreaming) is a Japanese manga series written by Inoue Kenji and illustrated by Yoshioka Kimitake. It centers on the budding youthful drama of Iori Kitahara as he begins his university life living in his uncle's diving store, "Grand Blue" near the coastal city of Izu. It began serialization in the May 2014 issue of Kodansha's Good! Afternoon seinen manga magazine. The first bound volume was released in November 2014 in Japan; as of November 2019, fourteen volumes have been released. An anime television series adaptation by Zero-G and directed by Shinji Takamatsu</div>
         <div class="card">
             <!-- Tabs -->
             <div class="tab" onclick="showTab(0)">Streams</div>
@@ -445,7 +443,7 @@
         }
       
         function fetchAnimeInfo() {
-            fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw')
+            fetch(' https://api.jikan.moe/v4/anime?q=Code Geass: Hangyaku no Lelouch R2&sfw')
                 .then(response => response.json())
                 .then(data => {
                     const anime = data.data[0]; // Assuming the first result is the one we want
@@ -480,7 +478,7 @@
                         
                     `;
 
-                    fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw')
+                    fetch(' https://api.jikan.moe/v4/anime?q=Code Geass: Hangyaku no Lelouch R2&sfw')
                     .then(response => response.json())
                     .then(data => {
                         const anime = data.data[0]; // Assuming the first result is the one we want
@@ -514,7 +512,7 @@
         });
         async function fetchAnimeData() {
             try {
-              const response = await fetch('https://api.jikan.moe/v4/anime?q=death%20note&sfw');
+              const response = await fetch(' https://api.jikan.moe/v4/anime?q=Code Geass: Hangyaku no Lelouch R2&sfw');
               
               if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -598,7 +596,7 @@
                 // GraphQL query to fetch anime information including the image
                 const query = `
                     query {
-                        Media(search: "Chainsaw Man", type: ANIME) {
+                        Media(search: "", type: ANIME) {
                             coverImage {
                                 extraLarge
                             }
@@ -638,7 +636,7 @@
                 // GraphQL query to fetch anime information including the image
                 const query = `
                     query {
-                        Media(search: "DEATH NOTE", type: ANIME) {
+                        Media(search: "Code  Geass", type: ANIME) {
                             coverImage {
                                 extraLarge
                             }
