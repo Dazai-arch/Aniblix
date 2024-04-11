@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniblix|comingsoon</title>
+    <style>
+        body{
+            background-image: url("./iMAGES/Untitled\ design\ \(8\).png");
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+            height: 98vh;
+        }
+        header{
+            background-color: #d9d9d97f;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .Anib_logo{
+            width: 125px;
+            height: 100px;
+        }
+        .nav1{
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 8em;
+            padding-left: 200px;
+        }
+        .nav1 a{
+            color: #FDC500;
+            font-family: "Righteous", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1em;
+        }
+        .search{
+            display: flex;
+            justify-content: center;
+            flex-direction: row;   
+            align-items: center;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        #sbtn{
+            background-color: #FDC500;
+            border: none;
+            margin-left: 200px;
+            height: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #00000073;
+            cursor: pointer;
+            border-radius: 20px;
+            font-size: 16px;
+            padding-left: 14px;
+            padding-right: 30px; 
+            display: inline;
+        }
+        #sbtn:focus{
+            border: none;
+            outline: 0;
+        }
+        .search_icon {
+            position: absolute;
+            right: 10px; 
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .loglogo{
+            margin-left: 25em;
+        }
+        .log{
+            height: 30px;
+            width: 25px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./iMAGES/Untitled_design__10_-removebg-preview.png" alt="Aniblix Logo" class="Anib_logo">
+        <div class="navb">
+            <ul class="nav1">
+                <li class="home"><a href="home.html">Home</a></li>
+                <li class="cs"><a href="upcoming.html">Comming Soon</a></li>
+                <li class="tr"><a href="#">Track</a></li>
+            </ul>
+        </div>
+        <div class="search">
+            <div class="search-container">
+                <form action="booksearch.html">
+                    <input type="text" placeholder="search" id="sbtn" name="search">
+                </form>
+                <div class="search_icon">
+                    <img src="./iMAGES/Search.png" alt="search" class="sbmt" height="20vh">
+                </div>
+            </div>
+        </div>
+        <div class="loglogo">
+            <a href="login.html"><img src="./iMAGES/avatar.png" alt="login_logo" class="log"></a>
+        </div>
+    </header>
+    <div class="card">
+        <figure class="m1">
+            <video src="" class="mov_vd"></video>
+        </figure>
+        <div class="card_content">
+            <div class="movie_name">
+                <p class="m11"></p>
+            </div>
+            <div class="movie_des">
+                <p class="md1"></p>
+            </div>            
+        </div>
+        <div class="movie_cast">
+            <ul class="staff">
+                <li></li>
+            </ul>
+        </div>
+    </div>    
+</body>
+</html>
